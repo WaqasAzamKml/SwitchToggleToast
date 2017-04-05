@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
 
     Switch mySwitch;
+    ToggleButton toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,18 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Switch Checked", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(MainActivity.this, "Switch Unchecked", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        toggle = (ToggleButton) findViewById(R.id.toggleBtn);
+        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    Toast.makeText(MainActivity.this, "Toggle Checked", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(MainActivity.this, "Toggle Unchecked", Toast.LENGTH_SHORT).show();
                 }
             }
         });
